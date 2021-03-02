@@ -70,7 +70,7 @@ main {
     height: 100%;
     padding: 0;
     margin: 0;
-    margin-left: -20px;
+    /* margin-left: -20px; */
 }
 .wonderful {
     display: block;
@@ -118,6 +118,7 @@ main {
 .stats {
     display: flex;
     justify-content: space-around;
+    align-items: center;
     padding-left: 10px;
     padding-right: 10px;
     /* background-color: darkgrey; */
