@@ -5,8 +5,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>hw-13-image-finder</title>
+    <link
+        href="https://fonts.googleapis.com/icon?family=Material+Icons"
+        rel="stylesheet"
+    />
 </head>
 <body>
+    <header class="header">
+        <div class="container">
+            <img src="https://pixabay.com/static/img/public/leaderboard_a.png" alt="Pixabay" class="pixabay">
+            <form class="search-form" id="search-form">
+                <input
+                  type="text"
+                  name="query"
+                  autocomplete="off"
+                  placeholder="Search images..."
+                />
+                <button type="submit" class="search-btn" data-action="search">Search</button>
+            </form>
+        </div>
+        
+    </header>
+    <main>
+        <ul class="gallery"></ul>
+        <!-- <p class="inscription">What images <br> are you looking for?</p> -->
+        <div class="wonderful"></div>
+        <button type="button" class="load-btn is-hidden" data-action="load-more">Load more</button>
+    </main>
     
 </body>
 </html>
