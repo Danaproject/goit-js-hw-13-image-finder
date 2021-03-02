@@ -1,7 +1,7 @@
 import './styles.css';
 import refs from './js/refs';
 import apiService from './js/apiService';
-import createMarkup from './js/createMarkup';
+import createImagesMarkup from './js/createImagesMarkup';
 
 refs.searchForm.addEventListener('submit', event => {
     event.preventDefault();
@@ -16,8 +16,9 @@ refs.searchForm.addEventListener('submit', event => {
     refs.image.classList.add('is-hidden');
   
     if (apiService.query) { 
-      apiService.fetchImages().then(images => {
-        createMarkup(images);
+      apiService.fetchImages()
+      .then(images => {
+        createImagesMarkup(images);
         refs.loadMoreBtn.classList.remove('is-hidden');
       });
     }},
@@ -25,7 +26,11 @@ refs.searchForm.addEventListener('submit', event => {
   
 refs.loadMoreBtn.addEventListener('click', () => {
     apiService.fetchImages().then(images => {
-      createMarkup(images);
+      createImagesMarkup(images);
+      window.scrollTo({
+        top: document.documentElement.offsetHeight,
+        behavior: 'smooth',
+      });
     });
 });
 
