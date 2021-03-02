@@ -13,7 +13,6 @@ refs.searchForm.addEventListener('submit', event => {
     form.reset();
     apiService.resetPage();
     refs.loadMoreBtn.classList.add('is-hidden');
-
     refs.image.classList.add('is-hidden');
   
     if (apiService.query) { 
@@ -29,3 +28,4 @@ refs.loadMoreBtn.addEventListener('click', () => {
       createMarkup(images);
     });
 });
+

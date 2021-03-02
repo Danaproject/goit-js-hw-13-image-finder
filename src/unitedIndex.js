@@ -4,6 +4,9 @@ import apiService from './js/apiService';
 // import imageCard from './templates/imageCard.hbs';
 import createMarkup from './js/createMarkup';
 
+// document.body.insertAdjacentHTML('beforeend', '<form class="search-form" id="search-form"><input type="text" name="query" autocomplete="off" placeholder="Search images..."/><button type="submit" class="search-btn" data-action="search">Search</button></form>');
+// document.body.insertAdjacentHTML('beforeend', '<ul class="gallery"></ul>');
+
 let searchQuery = '';
 let page = 1; 
 

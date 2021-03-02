@@ -5,7 +5,7 @@ export default {
   searchQuery: '',
   page: 1,
   fetchImages() {
-    const url = `https://pixabay.com/api/?key=${apiKey}&image_type=photo&orientation=horizontal&q=${this.query}&page=${this.page}&per_page=12`
+    const url = `https://pixabay.com/api/?image_type=photo&orientation=horizontal&q=${this.query}&page=${this.page}&per_page=12&key=${apiKey}`
     
     return fetch(url)
         .then(response => response.ok ? response.json() : [])
