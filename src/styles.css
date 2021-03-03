@@ -59,6 +59,10 @@ body {
 .load-btn {
     margin: 0 auto;
 }
+/* .spinner {
+} */
+
+
 img {
     display: block;
     max-width: 100%;
@@ -118,7 +122,6 @@ main {
 .stats {
     display: flex;
     justify-content: space-around;
-    align-items: center;
     padding-left: 10px;
     padding-right: 10px;
     /* background-color: darkgrey; */
@@ -128,6 +131,7 @@ main {
 .stats-item {
     display: flex;
     align-items: center;
+    margin-top: 14px;
     font-size: 13px;
 }
 .material-icons {
