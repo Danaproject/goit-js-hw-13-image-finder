@@ -3,7 +3,7 @@ import refs from './js/refs';
 import LoadMoreBtn from './js/components/loadMoreBtn'
 import apiService from './js/apiService';
 import createImagesMarkup from './js/createImagesMarkup';
-import lightbox from './js/lightbox';
+import largeImageDisplayHandler from './js/lightbox';
 
 const loadMoreBtn = new LoadMoreBtn('button[data-action="load-more"]');
 
@@ -19,6 +19,7 @@ function searchFormSubmitHandler(event) {
     clearGallery();
     apiService.resetPage();
     fetchItems();
+  
     form.reset();
 }
 
@@ -30,6 +31,7 @@ function fetchItems() {
     .then(images => {
       createImagesMarkup(images);
       loadMoreBtn.show();
+      refs.gallery.addEventListener('click', largeImageDisplayHandler);
     });
 }
 
