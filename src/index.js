@@ -1,22 +1,13 @@
 import './styles.css';
 import refs from './js/refs';
-// import loadMoreBtn from './js/components/loadMoreBtn'
+import LoadMoreBtn from './js/components/loadMoreBtn'
 import apiService from './js/apiService';
 import createImagesMarkup from './js/createImagesMarkup';
 
+const loadMoreBtn = new LoadMoreBtn('button[data-action="load-more"]');
+
 refs.searchForm.addEventListener('submit', searchFormSubmitHandler);
-refs.loadMoreBtn.addEventListener('click', loadMoreBtnHandler);
-
-function fetchItems() {
-  loadMoreButton.hide();
-  hideWelcomeImage();
-
-  apiService.fetchImages()
-    .then(images => {
-      createImagesMarkup(images);
-      loadMoreButton.show();
-    });
-}
+loadMoreBtn.refs.node.addEventListener('click', loadMoreBtnHandler);
 
 function searchFormSubmitHandler(event) {
     event.preventDefault();
@@ -30,6 +21,17 @@ function searchFormSubmitHandler(event) {
     form.reset();
 }
 
+function fetchItems() {
+  loadMoreBtn.hide();
+  hideWelcomeImage();
+
+  apiService.fetchImages()
+    .then(images => {
+      createImagesMarkup(images);
+      loadMoreBtn.show();
+    });
+}
+
 function loadMoreBtnHandler() {
   apiService.fetchImages().then(images => {
     createImagesMarkup(images);
@@ -38,15 +40,6 @@ function loadMoreBtnHandler() {
       behavior: 'smooth',
     });
   });
-}
-
-const loadMoreButton = {
-  show() {
-    refs.loadMoreBtn.classList.remove('is-hidden');
-  },
-  hide() {
-    refs.loadMoreBtn.classList.add('is-hidden');
-  },
 }
 
 function clearGallery() {
