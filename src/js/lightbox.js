@@ -23,7 +23,7 @@ export default class LightboxHandler{
         this.refs.lightbox.classList.remove('is-open');
         document.body.style.overflow = 'visible';
         this.refs.largeImage.src = "";
-        this.refs.overlay.removeEventListener('click', event => this.closeLightbox(event));
+        this.refs.overlay.removeEventListener('click', () => this.closeLightbox());
         window.removeEventListener('keydown', event => this.closeOnKeydown(event));
     }
     closeOnKeydown(event) {
