@@ -27,7 +27,9 @@ export default class LightboxHandler{
         window.removeEventListener('keydown', event => this.closeOnKeydown(event));
     }
     closeOnKeydown(event) {
-         if (event.code === "Escape") this.closeLightbox();
+         if (event.code === "Escape") {
+            this.closeLightbox()
+         };
     }
 }
 
