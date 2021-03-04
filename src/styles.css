@@ -45,7 +45,7 @@ body {
     background-color: transparent;
     border: 1px solid;
     border-radius: 50px;
-    box-shadow: 3px 3px 5px silver;
+    box-shadow: 3px 3px 6px silver;
     width: 360px;
     height: 36px;
     font-size: 20px;
@@ -56,7 +56,7 @@ body {
     display: block;
     border: 1px solid;
     border-radius: 50px;
-    box-shadow: 3px 3px 5px silver;
+    box-shadow: 3px 3px 6px silver;
     width: 120px;
     height: 38px;
     background-color: transparent;
