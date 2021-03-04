@@ -1,11 +1,15 @@
 import './styles.css';
 import refs from './js/refs';
-import LoadMoreBtn from './js/components/loadMoreBtn'
-import apiService from './js/apiService';
+import ApiService from './js/apiService';
+import LoadMoreBtn from './js/components/loadMoreBtn';
 import createImagesMarkup from './js/createImagesMarkup';
 import largeImageDisplayHandler from './js/lightbox';
 
-const loadMoreBtn = new LoadMoreBtn('button[data-action="load-more"]');
+const apiService = new ApiService();
+const loadMoreBtn = new LoadMoreBtn({
+  selector: 'button[data-action="load-more"]',
+  hidden: true,
+});
 
 refs.searchForm.addEventListener('submit', searchFormSubmitHandler);
 loadMoreBtn.refs.node.addEventListener('click', loadMoreBtnHandler);
