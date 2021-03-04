@@ -1,8 +1,8 @@
 import './styles.css';
 import refs from './js/refs';
 import ApiService from './js/apiService';
+import imageCard from './templates/imageCard.hbs';
 import LoadMoreBtn from './js/components/loadMoreBtn';
-import createImagesMarkup from './js/createImagesMarkup';
 import LightboxHandler from './js/lightbox';
 
 const apiService = new ApiService();
@@ -54,6 +54,9 @@ function loadMoreBtnHandler() {
   });
 }
 
+function createImagesMarkup(images) {
+  refs.gallery.insertAdjacentHTML('beforeend', imageCard(images));
+}
 function clearGallery() {
   refs.gallery.innerHTML = '';
 }
