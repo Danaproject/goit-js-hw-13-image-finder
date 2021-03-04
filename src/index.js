@@ -3,13 +3,15 @@ import refs from './js/refs';
 import ApiService from './js/apiService';
 import LoadMoreBtn from './js/components/loadMoreBtn';
 import createImagesMarkup from './js/createImagesMarkup';
-import largeImageDisplayHandler from './js/lightbox';
+import LightboxHandler from './js/lightbox';
 
 const apiService = new ApiService();
+const lightboxHandler = new LightboxHandler();
 const loadMoreBtn = new LoadMoreBtn({
   selector: 'button[data-action="load-more"]',
   hidden: true,
 });
+const searchBtn = new LoadMoreBtn({selector: 'button[data-action="search"]'});
 
 refs.searchForm.addEventListener('submit', searchFormSubmitHandler);
 loadMoreBtn.refs.node.addEventListener('click', loadMoreBtnHandler);
@@ -22,25 +24,29 @@ function searchFormSubmitHandler(event) {
 
     clearGallery();
     apiService.resetPage();
-    fetchItems();
+    fetchImages();
     form.reset();
 }
 
-function fetchItems() {
+function fetchImages() {
   loadMoreBtn.hide();
+  searchBtn.disable();
   hideWelcomeImage();
 
-  apiService.fetchImages()
+  apiService.fetchItems()
     .then(images => {
       createImagesMarkup(images);
       loadMoreBtn.show();
-      refs.gallery.addEventListener('click', largeImageDisplayHandler);
+      searchBtn.enable();
+      refs.gallery.addEventListener('click', event => lightboxHandler.openLightbox(event));
     });
 }
 
 function loadMoreBtnHandler() {
-  apiService.fetchImages().then(images => {
+  loadMoreBtn.disable();
+  apiService.fetchItems().then(images => {
     createImagesMarkup(images);
+    loadMoreBtn.enable();
     window.scrollTo({
       top: document.documentElement.offsetHeight,
       behavior: 'smooth',

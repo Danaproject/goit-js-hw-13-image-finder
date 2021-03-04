@@ -13,4 +13,10 @@ export default class LoadMoreBtn {
     hide() {
         this.refs.node.classList.add('is-hidden');
     }
+    enable() {
+        this.refs.node.disabled = false;
+      }
+    disable() {
+    this.refs.node.disabled = true;
+    }
 }

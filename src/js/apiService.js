@@ -5,7 +5,7 @@ export default class ApiService {
     this.searchQuery = '';
     this.page = 1;
   }
-  fetchImages() {
+  fetchItems() {
     const url = `https://pixabay.com/api/?image_type=photo&orientation=horizontal&q=${this.query}&page=${this.page}&per_page=12&key=${apiKey}`
     
     return fetch(url)
@@ -25,7 +25,7 @@ export default class ApiService {
   get query() {
     return this.searchQuery;
   }
-  set query(value) {
-    this.searchQuery = value;
+  set query(newQuery) {
+    this.searchQuery = newQuery;
   }
 };
