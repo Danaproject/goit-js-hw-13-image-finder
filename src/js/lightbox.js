@@ -7,12 +7,14 @@ function largeImageDisplayHandler(event) {
     if (event.target.nodeName !== 'IMG') return;
     largeImageRef.src =event.target.dataset.source;
     lightboxRef.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
     overlayRef.addEventListener('click', closeLightbox);
     window.addEventListener('keydown', KeydownHandler);
 }
 
 function closeLightbox() {
     lightboxRef.classList.remove('is-open');
+    document.body.style.overflow = 'visible';
     largeImageRef.src = "";
     overlayRef.removeEventListener('click', closeLightbox);
     window.removeEventListener('keydown', KeydownHandler);

@@ -157,13 +157,14 @@ main {
     opacity: 0;
     pointer-events: none;
     transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
-    overflow-y: scroll;
   }
   
   .lightbox.is-open {
     opacity: 1;
     pointer-events: initial;
+    height: 100%; 
   }
+
   
   .lightbox__overlay {
     position: absolute;
