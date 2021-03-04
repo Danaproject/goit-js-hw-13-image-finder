@@ -19,7 +19,6 @@ function searchFormSubmitHandler(event) {
     clearGallery();
     apiService.resetPage();
     fetchItems();
-  
     form.reset();
 }
 

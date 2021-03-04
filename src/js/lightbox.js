@@ -15,7 +15,7 @@ function closeLightbox() {
     lightboxRef.classList.remove('is-open');
     largeImageRef.src = "";
     overlayRef.removeEventListener('click', closeLightbox);
-    window.removeEventListener('keydown', onKeydown);
+    window.removeEventListener('keydown', KeydownHandler);
 }
 
 function KeydownHandler(event) {

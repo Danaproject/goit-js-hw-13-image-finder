@@ -4,13 +4,3 @@ const refs = {
     image: document.querySelector('.wonderful'),
 };
 export default refs;
-
-// const searchForm = document.querySelector('#search-form');
-// const gallery = document.querySelector('.gallery');
-// const image = document.querySelector('.wonderful');
-
-// export default {
-//     searchForm,
-//     gallery,
-//     image,
-// };
