@@ -17,17 +17,17 @@ export default class LightboxHandler{
         this.refs.lightbox.classList.add('is-open');
         document.body.style.overflow = 'hidden';
         this.refs.overlay.addEventListener('click', () => this.closeLightbox());
-        window.addEventListener('keydown', event => this.keydownHandler(event));
+        window.addEventListener('keydown', event => this.closeOnKeydown(event));
     }
     closeLightbox() {
         this.refs.lightbox.classList.remove('is-open');
         document.body.style.overflow = 'visible';
         this.refs.largeImage.src = "";
         this.refs.overlay.removeEventListener('click', event => this.closeLightbox(event));
-        window.removeEventListener('keydown', event => this.keydownHandler(event));
+        window.removeEventListener('keydown', event => this.closeOnKeydown(event));
     }
-    keydownHandler(event) {
-         if (event.code === "Escape") this.closeLightbox(event);
+    closeOnKeydown(event) {
+         if (event.code === "Escape") this.closeLightbox();
     }
 }
 
@@ -43,7 +43,7 @@ export default class LightboxHandler{
 //     lightboxRef.classList.add('is-open');
 //     document.body.style.overflow = 'hidden';
 //     overlayRef.addEventListener('click', closeLightbox);
-//     window.addEventListener('keydown', keydownHandler);
+//     window.addEventListener('keydown', closeOnKeydown);
 // }
 
 // function closeLightbox() {
@@ -51,10 +51,10 @@ export default class LightboxHandler{
 //     document.body.style.overflow = 'visible';
 //     largeImageRef.src = "";
 //     overlayRef.removeEventListener('click', closeLightbox);
-//     window.removeEventListener('keydown', keydownHandler);
+//     window.removeEventListener('keydown', closeOnKeydown);
 // }
 
-// function keydownHandler(event) {
+// function closeOnKeydown(event) {
 //      if (event.code === "Escape") closeLightbox();
 // }
 // export default lightboxHandler;
