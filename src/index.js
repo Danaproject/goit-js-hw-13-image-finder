@@ -1,6 +1,7 @@
 import './styles.css';
 import refs from './js/refs';
 import ApiService from './js/apiService';
+import createImagesMarkup from './js/createImagesMarkup';
 import imageCard from './templates/imageCard.hbs';
 import LoadMoreBtn from './js/components/loadMoreBtn';
 import LightboxHandler from './js/lightbox';
@@ -47,16 +48,13 @@ function loadMoreBtnHandler() {
   apiService.fetchItems().then(images => {
     createImagesMarkup(images);
     loadMoreBtn.enable();
-    window.scrollTo({
-      top: document.documentElement.offsetHeight,
+    window.scrollBy({
+      top: -window.innerHeight,
       behavior: 'smooth',
     });
   });
 }
 
-function createImagesMarkup(images) {
-  refs.gallery.insertAdjacentHTML('beforeend', imageCard(images));
-}
 function clearGallery() {
   refs.gallery.innerHTML = '';
 }
