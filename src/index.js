@@ -2,7 +2,6 @@ import './styles.css';
 import refs from './js/refs';
 import ApiService from './js/apiService';
 import createImagesMarkup from './js/createImagesMarkup';
-import imageCard from './templates/imageCard.hbs';
 import LoadMoreBtn from './js/components/loadMoreBtn';
 import LightboxHandler from './js/lightbox';
 
