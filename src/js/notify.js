@@ -13,8 +13,9 @@ defaultModules.set(PNotifyMobile, {});
 
 function notify() {
     alert({
-        text: 'No matches found, please enter a valid word!',
-        width: '360px',
+        text: 'No matches found. Please enter a valid word!',
+        width: '340px',
+        delay: 3000,
     });
 }
 
