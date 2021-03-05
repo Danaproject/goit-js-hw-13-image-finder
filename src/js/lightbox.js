@@ -28,7 +28,7 @@ export default class LightboxHandler{
     }
     closeOnKeydown(event) {
          if (event.code === "Escape") {
-            this.closeLightbox()
+            this.closeLightbox();
          };
     }
 }
