@@ -62,6 +62,7 @@ body {
     background-color: transparent;
     font-size: 20px;
     color: white;
+    cursor: pointer;
 }
 
 .load-btn {
