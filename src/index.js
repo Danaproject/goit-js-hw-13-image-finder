@@ -4,6 +4,8 @@ import ApiService from './js/apiService';
 import createImagesMarkup from './js/createImagesMarkup';
 import LoadMoreBtn from './js/components/loadMoreBtn';
 import LightboxHandler from './js/lightbox';
+import WelcomeImage from './js/components/welcomeImage';
+import notify from './js/notify';
 
 const apiService = new ApiService();
 const lightboxHandler = new LightboxHandler();
@@ -12,6 +14,7 @@ const loadMoreBtn = new LoadMoreBtn({
   hidden: true,
 });
 const searchBtn = new LoadMoreBtn({selector: 'button[data-action="search"]'});
+const welcomeImage = new WelcomeImage({selector: '.wonderful'});
 
 refs.searchForm.addEventListener('submit', searchFormSubmitHandler);
 loadMoreBtn.refs.node.addEventListener('click', loadMoreBtnHandler);
@@ -31,7 +34,7 @@ function searchFormSubmitHandler(event) {
 function fetchImages() {
   loadMoreBtn.hide();
   searchBtn.disable();
-  hideWelcomeImage();
+  welcomeImage.hide();
 
   apiService.fetchItems()
     .then(images => {
@@ -39,6 +42,11 @@ function fetchImages() {
       loadMoreBtn.show();
       searchBtn.enable();
       refs.gallery.addEventListener('click', event => lightboxHandler.openLightbox(event));
+      if (refs.gallery.innerHTML === '') {
+        loadMoreBtn.hide();
+        welcomeImage.show();
+        notify();
+      }
     });
 }
 
@@ -56,8 +64,5 @@ function loadMoreBtnHandler() {
 
 function clearGallery() {
   refs.gallery.innerHTML = '';
-}
-function hideWelcomeImage() {
-  refs.image.classList.add('is-hidden');
 }
 
