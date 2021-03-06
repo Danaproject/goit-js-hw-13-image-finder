@@ -33,7 +33,7 @@ export default class LightboxHandler{
     }
 }
 
-
+// -----------------------------------------------------------------
 // const largeImageRef = document.querySelector('.lightbox__image');
 // const lightboxRef = document.querySelector('.js-lightbox');
 // const overlayRef = document.querySelector('.lightbox__overlay');
@@ -60,3 +60,4 @@ export default class LightboxHandler{
 //      if (event.code === "Escape") closeLightbox();
 // }
 // export default lightboxHandler;
+// -----------------------------------------------------------------
