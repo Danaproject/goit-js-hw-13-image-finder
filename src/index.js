@@ -53,10 +53,11 @@ function fetchImages() {
 function loadMoreBtnHandler() {
   loadMoreBtn.disable();
   apiService.fetchItems().then(images => {
+    const scrollHeight = refs.gallery.offsetHeight + refs.gallery.offsetTop;
     createImagesMarkup(images);
     loadMoreBtn.enable();
     window.scrollBy({
-      top: -window.innerHeight,
+      top: scrollHeight,
       behavior: 'smooth',
     });
   });
